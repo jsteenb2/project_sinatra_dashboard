@@ -15,7 +15,7 @@ get '/searcher' do
 end
 
 post '/searcher' do
-  erb :searcher, locals: { job_data:   }
+  erb :searcher, locals: { job_data: MechScraper.new(params["q"], params["l"]).package  }
 end
 
 not_found do

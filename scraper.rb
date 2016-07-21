@@ -4,6 +4,7 @@ require 'pry-byebug'
 require 'mechanize'
 require 'date'
 require 'csv'
+require 'pp'
 
 module Scraper
   class MechScraper
@@ -26,15 +27,15 @@ module Scraper
 
     def package
       @output_data = (0..29).map do |index|
-        @output_data["job#{index}"] = {
-          job_title: "#{@job_titles[index]}",
-          job_id: "#{@job_ids[index]}",
-          company_name: "#{@company_names[index]}",
-          company_id: "#{@company_ids[index]}",
-          job_link: "#{@job_links[index]}",
-          location: "#{@locations[index]}",
-          posting_date: "#{@posting_dates[index]}"
-        }
+          @output_data["job#{index}"] = {
+            job_title: "#{@job_titles[index]}",
+            job_id: "#{@job_ids[index]}",
+            company_name: "#{@company_names[index]}",
+            company_id: "#{@company_ids[index]}",
+            job_link: "#{@job_links[index]}",
+            location: "#{@locations[index]}",
+            posting_date: "#{@posting_dates[index]}"
+          }
       end
     end
 
@@ -97,7 +98,7 @@ module Scraper
         elsif rel_time.include?("day")
           Time.new(current_time.year, current_time.month, [0, current_time.day -  num].max)
         elsif rel_time.include?("week")
-          Time.new(current_time.year, current_time.month, [0, current_time.day - (7 *  num].max))
+          Time.new(current_time.year, current_time.month, [0, current_time.day - (7 *  num)].max)
         elsif rel_time.include?("month")
           Time.new(current_time.year, [num, current_time.month -  0].max, current_time.day )
         else
@@ -117,5 +118,6 @@ module Scraper
     end
   end
 end
-# scrape_job = MechScraper.new('rails developer', 'Orange County, CA')
+scrape_job = Scraper::MechScraper.new('rails developer', 'Orange County, CA')
+pp scrape_job.package
 # scrape_job.create_csv_file('refactored_search.csv')
