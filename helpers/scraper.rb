@@ -118,6 +118,3 @@ module Scraper
     end
   end
 end
-
-scrape_job = Scraper::MechScraper.new('rails developer', 'Orange County, CA')
-pp scrape_job.package
