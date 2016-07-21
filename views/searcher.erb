@@ -1,2 +1,26 @@
-<% (job_data.keys.length-1).times do %>
-<% %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Job Title</th>
+      <th>Job ID</th>
+      <th>Company Name</th>
+      <th>Company ID</th>
+      <th>Link</th>
+      <th>Location</th>
+      <th>Date Posted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% (0..(job_data.keys.length-1)).each do |i| %>
+      <tr>
+        <td><%= job_data[i][:job_title] %></td>
+        <td><%= job_data[i][:job_id] %></td>
+        <td><%= job_data[i][:company_name] %></td>
+        <td><%= job_data[i][:company_id] %></td>
+        <td><%= job_data[i][:job_link] %></td>
+        <td><%= job_data[i][:location] %></td>
+        <td><%= job_data[i][:posting_date] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

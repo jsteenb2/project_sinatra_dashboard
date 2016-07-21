@@ -1,8 +1,14 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler/setup'
 require 'sinatra'
 require 'thin'
 require "sinatra/reloader" if development?
 require 'pry-byebug'
+require 'mechanize'
+require 'date'
+require 'csv'
+require 'pp'
 
 
 require './helpers/scraper.rb'
