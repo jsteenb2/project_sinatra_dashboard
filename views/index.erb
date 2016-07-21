@@ -1,6 +1,12 @@
-<h1>Enter your job parameters</h1>
-<form action="/searcher" method="post">
-  <input type="text" name="q">
-  <input type="text" name="l">
-  <input type="submit" value="Submit"/>
-</form>
+<div class="col-md-4 col-md-offset-4">
+  <form action="jobs" method="post">
+    <div class="form-group">
+    <h1>Enter your job parameters</h1>
+      <form action="/searcher" method="post">
+        <input type="text" name="q" placeholder="Job Title">
+        <input type="text" name="l" placeholder="Location">
+        <input type="submit" value="Submit"/>
+      </form>
+    </div>
+  </form>
+</div>
